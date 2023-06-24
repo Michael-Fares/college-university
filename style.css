@@ -1,17 +1,37 @@
 body {
     background-color: #777;
 }
+.header {
+    background-color: tomato;
+    padding: 1rem;
+    margin-bottom: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+}
 main.main-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.comic-frame {
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem
+}
+.comic-card .comic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: white;
+    border-radius: 0.25rem 0.25rem 0 0;
+}
+.comic-card .comic-frame {
    width: 700px;
    max-width: 100vw;
    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
    border: 0.5rem solid black;
 }
-.comic {
+.comic-card .comic {
     width: 100%;
 }
