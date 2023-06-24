@@ -1,0 +1,17 @@
+body {
+    background-color: #777;
+}
+main.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.comic-frame {
+   width: 700px;
+   max-width: 100vw;
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+   border: 0.5rem solid black;
+}
+.comic {
+    width: 100%;
+}
