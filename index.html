@@ -7,25 +7,75 @@
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./style.css">
     <title>College University</title>
+    <script src="./hamburger.js"></script>
 </head>
 <body>
 
 <header class="header">
-    <h1>College University</h1>
-    <h5>A comic about the decline and bureaucratization of Academia. (Based on true stories of an ex-Professor.)</h5>
-</header>
-<main class="main-container">
-    <div class="comic-card">
-        <div class="comic-header">
-            <h3>Episode 1: Faculty Survery</h3>
-            <h4>06/24/2023</h4>
+    <div class="logo-wrapper">
+        <div class="logo-icon-holder">
+            <img src="./logo.svg" alt="Upside down teaching ex-Professor">
         </div>
-        <div class="comic-frame">
-            <img class="comic" src="./comics/ep1.jpg" alt="A comic">
-        </div>
+        <h1 class="college-university">College University</h1>
     </div>
-</main>
+    <p>A comic about decline, bureaucracy and corporatization in Academia as a theme of societal breakdown.</p>
+    <p class="true-stories">[ Based on true stories of an ex-Professor. ]</p>
+</header>
 
+
+
+  
+<div class="main-container">
+    <nav>   
+        <button id="hamburger" onclick="toggle()">
+         
+            <div></div>
+       
+        </button>
+        <div id="sidenav">
+            <p class="new-weekly">New comics weekly!</p>
+            <ul id="links-list">
+                <li>
+                    <h3>Episodes:</h3>
+                </li>
+                <li>
+                    <a href="#episode-1">Episode 1</a>
+                </li>
+                <li>
+                    <a href="#episode-2">Episode 2</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="comics-container">
+
+        <!-- comic start -->
+        <div id="episode-1" class="comic-card">
+            <div class="comic-header">
+                <h3>Episode 1: Faculty Survery</h3>
+                <h4>06/17/2023</h4>
+            </div>
+            <div class="comic-frame">
+                <img class="comic" src="./comics/ep1.jpg" alt="A comic">
+            </div>
+        </div>
+        <!-- comic end -->
+    
+        <!-- comic start -->
+        <div id="episode-2" class="comic-card">
+            <div class="comic-header">
+                <h3>Episode 2: Ennui</h3>
+                <h4>06/24/2023</h4>
+            </div>
+            <div class="comic-frame">
+                <img class="comic" src="./comics/ennui.jpg" alt="A comic">
+            </div>
+        </div>
+        <!-- comic end -->
+    
+    </div>
+</div>
     
     
 </body>

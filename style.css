@@ -1,37 +1,185 @@
+:root {
+    --black: #080202;
+    --white: #eee;
+    --background-color: #777;
+    --yellow-primary: #F6FA70;
+}
+/* bagel-fat-one-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Bagel Fat One';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/bagel-fat-one-v1-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* dosis-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Dosis';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/dosis-v27-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* response font size trick */
+html {
+    font-size: calc(16px + 0.390625vw);
+}
 body {
-    background-color: #777;
+    background-color: var(--background-color);
+    font-family: 'Dosis', sans-serif;
+}
+.college-university {
+    font-family: 'Bagel Fat One', cursive;
+    letter-spacing: 0.25rem;
+    color: var(--yellow-primary);
 }
 .header {
-    background-color: tomato;
-    padding: 1rem;
+    background-color: var(--black);
+    color: var(--white);
+    padding: 0.5rem;
     margin-bottom: 0.25rem;
     display: flex;
-    justify-content: space-between;
-}
-main.main-container {
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: sticky;
+    margin-left: 25vw;
 }
-.main-container {
+#hamburger {
+    display: none;
+}
+#sidenav {
+    background-color: var(--yellow-primary);
+    height: 100%;
+    padding-top: 2rem;
+    width: 25vw; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    top: 0; /* Stay at the top */
+    overflow-x: hidden; /* Disable horizontal scroll */
     display: flex;
     flex-direction: column;
-    gap: 0.25rem
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 2;
+    color: var(--black);
+}
+.new-weekly {
+    text-transform: uppercase;
+}
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.logo-icon-holder {
+    width: 8vw;
+}
+.true-stories {
+    color: var(--yellow-primary);
+}
+.comics-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--black);
+    padding-right: 0.5rem;
+}
+.comic-card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 .comic-card .comic-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
-    background-color: white;
+    background-color: #eee;
     border-radius: 0.25rem 0.25rem 0 0;
 }
-.comic-card .comic-frame {
-   width: 700px;
-   max-width: 100vw;
-   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-   border: 0.5rem solid black;
+.comic-card {
+   width: 70vw;
 }
-.comic-card .comic {
+.comic-frame {
+    border: 0.5rem solid var(--black);
+}
+.comic {
     width: 100%;
+}
+
+@media screen and (max-width: 375px) {
+    .college-university {
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .college-university {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .logo-icon-holder {
+        width: 15vw;
+    }
+   .college-university {
+     letter-spacing: unset;
+   }
+   .header {
+     margin: 0;
+   }
+   #sidenav {
+    display: none;
+   }
+   .comics-container {
+     padding: 0;
+     align-items: center;
+   }
+   .comic-card {
+    width: 95vw;
+ }
+ #hamburger {
+    display: block;
+    background-color: unset;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    /* gap: 0.25rem; */
+    cursor: pointer;
+    z-index: 5;
+    padding: 0.25rem;
+ }
+ #hamburger:before,
+ #hamburger:after,
+ #hamburger div {
+    content: "";
+    width: 30px;
+    height: 3px;
+    border-radius: 3px;
+    margin: 0.15rem;
+    background-color: var(--white);
+    transition: ease-in 0.2s all;
+ }
+ #hamburger div.active {
+    background-color: var(--black);
+ }
+ #hamburger.active:before, 
+ #hamburger.active:after {
+    margin: 0;
+    opacity: 0;
+ }
+ #sidenav {
+    right: 0;
+    width: 100vw;
+ }
+}
+@media screen and (min-width: 1100px) {
+   .college-university {
+     letter-spacing: unset;
+     font-size: 80px;
+   }
 }
