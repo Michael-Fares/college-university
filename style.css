@@ -22,7 +22,7 @@
 }
 /* response font size trick */
 html {
-    font-size: calc(16px + 0.390625vw);
+    font-size: calc(0.75rem + 0.390625vmax);
 }
 body {
     background-color: var(--background-color);
@@ -33,39 +33,49 @@ body {
     letter-spacing: 0.25rem;
     color: var(--yellow-primary);
 }
+main.main-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 0.5rem;
+}
 .header {
     background-color: var(--black);
     color: var(--white);
     padding: 0.5rem;
-    margin-bottom: 0.25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    position: sticky;
-    margin-left: 25vw;
 }
 #hamburger {
     display: none;
 }
+#sidenav, .comics-container {
+    height: 100%;
+    width: 100%;
+}
 #sidenav {
     background-color: var(--yellow-primary);
-    height: 100%;
-    padding-top: 2rem;
-    width: 25vw; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    top: 0; /* Stay at the top */
-    overflow-x: hidden; /* Disable horizontal scroll */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    z-index: 2;
     color: var(--black);
 }
+
 .new-weekly {
     text-transform: uppercase;
+    padding: 1em;
+}
+#links-list {
+    width: 100%;
+}
+#links-list li {
+    padding: 0.25em;
+    margin: 0.25em;;
+    border-top: 0.25em solid var(--background-color);
+    border-bottom: 0.25em solid var(--background-color);
+    text-align: center;
 }
 .logo-wrapper {
     display: flex;
@@ -73,7 +83,7 @@ body {
     gap: 0.5rem;
 }
 .logo-icon-holder {
-    width: 8vw;
+    width: 7vw;
 }
 .true-stories {
     color: var(--yellow-primary);
@@ -85,7 +95,6 @@ body {
     flex-direction: column;
     gap: 0.5rem;
     color: var(--black);
-    padding-right: 0.5rem;
 }
 .comic-card {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
@@ -97,9 +106,6 @@ body {
     padding: 0.5rem;
     background-color: #eee;
     border-radius: 0.25rem 0.25rem 0 0;
-}
-.comic-card {
-   width: 70vw;
 }
 .comic-frame {
     border: 0.5rem solid var(--black);
@@ -120,17 +126,30 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-    .logo-icon-holder {
-        width: 15vw;
+    main.main-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
     }
-   .college-university {
+    .header p {
+        font-size: 0.80em;
+    }
+    .college-university {
      letter-spacing: unset;
    }
-   .header {
-     margin: 0;
-   }
    #sidenav {
-    display: none;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    height: 0;
+    transition: ease-in-out 0.2s;
+   }
+   #sidenav.active {
+     height: 100vh;
+     opacity: 1;
+   }
+   .new-weekly {
+    text-align: center;
    }
    .comics-container {
      padding: 0;
@@ -141,6 +160,7 @@ body {
  }
  #hamburger {
     display: block;
+    z-index: 2;
     background-color: unset;
     border: none;
     position: absolute;
@@ -164,22 +184,18 @@ body {
     background-color: var(--white);
     transition: ease-in 0.2s all;
  }
- #hamburger div.active {
-    background-color: var(--black);
- }
+#hamburger div.active {
+   background-color: var(--black);
+}
  #hamburger.active:before, 
  #hamburger.active:after {
     margin: 0;
     opacity: 0;
  }
- #sidenav {
-    right: 0;
-    width: 100vw;
- }
 }
 @media screen and (min-width: 1100px) {
    .college-university {
      letter-spacing: unset;
-     font-size: 80px;
+     font-size: 5em;
    }
 }
