@@ -47,13 +47,10 @@ main.main-container {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-left: 15rem;
 }
 #hamburger {
     display: none;
-}
-#sidenav, .comics-container {
-    height: 100%;
-    width: 100%;
 }
 #sidenav {
     background-color: var(--yellow-primary);
@@ -61,6 +58,11 @@ main.main-container {
     flex-direction: column;
     align-items: center;
     color: var(--black);
+    position: fixed;
+    top: 0;
+    width: 25vw;
+    padding: 0 0.5rem;
+    height: 100vh;
 }
 
 .new-weekly {
@@ -110,9 +112,10 @@ main.main-container {
 }
 .comic-card .comic-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-end;
     padding: 0.5rem;
+    gap: 1rem;
     background-color: #eee;
     border-radius: 0.25rem 0.25rem 0 0;
 }
@@ -132,12 +135,14 @@ main.main-container {
         grid-template-columns: 1fr;
         gap: 0.25rem;
     }
+    .header {
+        padding-left: unset;
+    }
 
    #sidenav {
-    position: absolute;
-    top: 0;
     opacity: 0;
     height: 0;
+    width: 100vw;
     transition: ease-in-out 0.2s height;
    }
    #sidenav.active {
@@ -165,7 +170,7 @@ main.main-container {
     z-index: 2;
     background-color: unset;
     border: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     display: flex;
@@ -173,6 +178,8 @@ main.main-container {
     cursor: pointer;
     z-index: 5;
     padding: 0.5rem;
+    background-color: var(--yellow-primary);
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
  }
  #hamburger:before,
  #hamburger:after,
@@ -182,12 +189,9 @@ main.main-container {
     height: 0.2em;
     border-radius: 0.25em;
     margin: 0.15em;
-    background-color: var(--white);
+    background-color: var(--black);
     transition: ease-in 0.2s all;
  }
-#hamburger div.active {
-   background-color: var(--black);
-}
  #hamburger.active:before, 
  #hamburger.active:after {
     margin: 0;
