@@ -22,7 +22,9 @@
 }
 /* response font size trick */
 html {
-    font-size: calc(0.75rem + 0.390625vmax);
+    font-size: clamp(0.75rem, 1.5vmax, 4rem);
+    height: 100%;
+    width: 100%; 
 }
 body {
     background-color: var(--background-color);
@@ -30,7 +32,6 @@ body {
 }
 .college-university {
     font-family: 'Bagel Fat One', cursive;
-    letter-spacing: 0.25rem;
     color: var(--yellow-primary);
 }
 main.main-container {
@@ -46,7 +47,6 @@ main.main-container {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
 #hamburger {
     display: none;
@@ -67,15 +67,19 @@ main.main-container {
     text-transform: uppercase;
     padding: 1em;
 }
-#links-list {
+#links-list, #links-list li {
     width: 100%;
 }
 #links-list li {
     padding: 0.25em;
-    margin: 0.25em;;
-    border-top: 0.25em solid var(--background-color);
-    border-bottom: 0.25em solid var(--background-color);
+    margin: 0.25em;
+    border-bottom: 0.1em solid var(--background-color);
     text-align: center;
+}
+#links-list a {
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
 }
 .logo-wrapper {
     display: flex;
@@ -83,7 +87,12 @@ main.main-container {
     gap: 0.5rem;
 }
 .logo-icon-holder {
-    width: 7vw;
+    width: clamp(5rem, 2vw, 8rem);
+}
+.logo-icon {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate()
 }
 .true-stories {
     color: var(--yellow-primary);
@@ -114,16 +123,8 @@ main.main-container {
     width: 100%;
 }
 
-@media screen and (max-width: 375px) {
-    .college-university {
-        font-size: 30px;
-    }
-}
-@media screen and (max-width: 320px) {
-    .college-university {
-        font-size: 20px;
-    }
-}
+
+
 
 @media screen and (max-width: 600px) {
     main.main-container {
@@ -131,22 +132,23 @@ main.main-container {
         grid-template-columns: 1fr;
         gap: 0.25rem;
     }
-    .header p {
-        font-size: 0.80em;
-    }
-    .college-university {
-     letter-spacing: unset;
-   }
+
    #sidenav {
     position: absolute;
     top: 0;
     opacity: 0;
     height: 0;
-    transition: ease-in-out 0.2s;
+    transition: ease-in-out 0.2s height;
    }
    #sidenav.active {
      height: 100vh;
      opacity: 1;
+   }
+   #sidenav .new-weekly, #sidenav #links-list {
+    display: none;
+   }
+   #sidenav.active .new-weekly, #sidenav.active #links-list {
+    display: block;
    }
    .new-weekly {
     text-align: center;
@@ -168,19 +170,18 @@ main.main-container {
     right: 0;
     display: flex;
     flex-direction: column;
-    /* gap: 0.25rem; */
     cursor: pointer;
     z-index: 5;
-    padding: 0.25rem;
+    padding: 0.5rem;
  }
  #hamburger:before,
  #hamburger:after,
  #hamburger div {
     content: "";
-    width: 30px;
-    height: 3px;
-    border-radius: 3px;
-    margin: 0.15rem;
+    width: 1.5em;
+    height: 0.2em;
+    border-radius: 0.25em;
+    margin: 0.15em;
     background-color: var(--white);
     transition: ease-in 0.2s all;
  }
@@ -193,9 +194,4 @@ main.main-container {
     opacity: 0;
  }
 }
-@media screen and (min-width: 1100px) {
-   .college-university {
-     letter-spacing: unset;
-     font-size: 5em;
-   }
-}
+
