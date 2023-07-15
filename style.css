@@ -22,9 +22,7 @@
 }
 /* response font size trick */
 html {
-    font-size: clamp(0.75rem, 1.5vmax, 4rem);
-    height: 100%;
-    width: 100%; 
+    font-size: clamp(0.75rem, 1.5vmax, 5rem);
 }
 body {
     background-color: var(--background-color);
@@ -73,8 +71,6 @@ main.main-container {
     width: 100%;
 }
 #links-list li {
-    padding: 0.25em;
-    margin: 0.25em;
     border-bottom: 0.1em solid var(--background-color);
     text-align: center;
 }
@@ -82,6 +78,9 @@ main.main-container {
     cursor: pointer;
     display: inline-block;
     width: 100%;
+    padding: 0.25rem 0;
+    margin: 0.25rem 0;
+
 }
 .logo-wrapper {
     display: flex;
@@ -89,7 +88,7 @@ main.main-container {
     gap: 0.5rem;
 }
 .logo-icon-holder {
-    width: clamp(5rem, 2vw, 8rem);
+    width: clamp(5rem, 2vmin, 8rem);
 }
 .logo-icon {
     transform: rotate(180deg);
