@@ -2,7 +2,7 @@
     --black: #080202;
     --white: #eee;
     --background-color: #777;
-    --yellow-primary: #F6FA70;
+    --yellow-primary: #FFE17B;
 }
 /* bagel-fat-one-regular - latin */
 @font-face {
@@ -46,6 +46,7 @@ main.main-container {
     align-items: center;
     justify-content: center;
     padding-left: 15rem;
+    text-align: center;
 }
 #hamburger {
     display: none;
@@ -142,7 +143,7 @@ main.main-container {
     opacity: 0;
     height: 0;
     width: 100vw;
-    transition: ease-in-out 0.2s height;
+    /* transition: ease-in-out 0.2s height; */
    }
    #sidenav.active {
      height: 100vh;
@@ -154,7 +155,12 @@ main.main-container {
    #sidenav.active .new-weekly, #sidenav.active #links-list {
     display: block;
    }
+   #links-list li {
+    font-size: 2em;
+    margin: 1.5em 0;
+   }
    .new-weekly {
+    font-size: 2em;
     text-align: center;
    }
    .comics-container {
@@ -162,7 +168,7 @@ main.main-container {
      align-items: center;
    }
    .comic-card {
-    width: 95vw;
+    width: 100vw;
  }
  #hamburger {
     display: block;
